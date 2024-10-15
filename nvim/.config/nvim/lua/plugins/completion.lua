@@ -106,19 +106,21 @@ end
 return {
 	"hrsh7th/nvim-cmp",
 	dependencies = {
+		"neovim/nvim-lspconfig",
 		"hrsh7th/cmp-nvim-lsp",
+		"hrsh7th/cmp-cmdline",
 		"hrsh7th/cmp-nvim-lsp-signature-help",
 		{
 			"ray-x/lsp_signature.nvim",
 			event = "VeryLazy",
 			opts = {},
 		},
-		"saadparwaiz1/cmp_luasnip",
 		{
 			"L3MON4D3/LuaSnip",
 			version = "v2.*",
 			dependencies = { "rafamadriz/friendly-snippets" },
 		},
+		"saadparwaiz1/cmp_luasnip",
 	},
 	opts = setup
 }

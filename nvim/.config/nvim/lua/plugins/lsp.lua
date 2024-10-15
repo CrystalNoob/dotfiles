@@ -90,27 +90,20 @@ local function setup()
 	})
 
 	--Enable (broadcasting) snippet capability for completion
-	local capabilities = vim.lsp.protocol.make_client_capabilities()
-	capabilities.textDocument.completion.completionItem.snippetSupport = true
+	local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 	lspconfig.cssls.setup ({
 		capabilities = capabilities,
 	})
 
-	local tsCapabilities = vim.lsp.protocol.make_client_capabilities()
-	tsCapabilities.textDocument.completion.completionItem.snippetSupport = true
 	lspconfig.ts_ls.setup({
-		capabilities = tsCapabilities,
+		capabilities = capabilities,
 	})
 
-	local htmlCapabilities = vim.lsp.protocol.make_client_capabilities()
-	htmlCapabilities.textDocument.completion.completionItem.snippetSupport = true
 	lspconfig.html.setup({
-		capabilities = htmlCapabilities,
+		capabilities = capabilities,
 	})
 
-	local jsonCapabilities = vim.lsp.protocol.make_client_capabilities()
-	jsonCapabilities.textDocument.completion.completionItem.snippetSupport = true
 	lspconfig.jsonls.setup({
 		settings = {
 			json = {
@@ -120,17 +113,21 @@ local function setup()
 				}
 			},
 		},
-		capabilities = jsonCapabilities,
+		capabilities = capabilities,
+	})
+
+	lspconfig.intelephense.setup({
+		capabilities = capabilities,
 	})
 end
 
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
-		{
-			"folke/lazydev.nvim",
-			ft = "lua",
-		},
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"hrsh7th/cmp-nvim-lsp",
+		"folke/lazydev.nvim",
 		"b0o/schemastore.nvim",
 	},
 	config = setup
