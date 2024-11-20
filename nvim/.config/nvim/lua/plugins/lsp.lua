@@ -118,7 +118,20 @@ local function setup()
 
 	lspconfig.intelephense.setup({
 		capabilities = capabilities,
+		settings = {
+			intelephense = {
+				format = {
+					enable = "true"
+				}
+			}
+		}
 	})
+
+	lspconfig.docker_compose_language_service.setup({
+		capabilities = capabilites,
+	})
+
+	lspconfig.dockerls.setup({})
 end
 
 return {
