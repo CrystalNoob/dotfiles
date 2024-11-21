@@ -23,7 +23,8 @@ local function setup()
 		---@type nil, any
 		local buffer, window = original_floating(contents, syntax, opts, ...)
 
-		vim.api.nvim_win_set_option(window, "winhighlight", "Normal:CompletionPmenu,FloatBorder:CompletionPmenu,Pmenu:CompletionPmenu,CursorLine:CompletionPmenuSel,Search:CompletionPmenu")
+		vim.api.nvim_win_set_option(window, "winhighlight",
+			"Normal:CompletionPmenu,FloatBorder:CompletionPmenu,Pmenu:CompletionPmenu,CursorLine:CompletionPmenuSel,Search:CompletionPmenu")
 		return buffer, window
 	end
 
@@ -36,7 +37,7 @@ local function setup()
 	lspconfig.lua_ls.setup({
 		on_init = function(client)
 			local path = client.workspace_folders[1].name
-			if vim.loop.fs_stat(path.."/.luarc.json") or vim.loop.fs_stat(path.."/.luarc.jsonc") then
+			if vim.loop.fs_stat(path .. "/.luarc.json") or vim.loop.fs_stat(path .. "/.luarc.jsonc") then
 				return
 			end
 
@@ -92,7 +93,7 @@ local function setup()
 	--Enable (broadcasting) snippet capability for completion
 	local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-	lspconfig.cssls.setup ({
+	lspconfig.cssls.setup({
 		capabilities = capabilities,
 	})
 
@@ -116,22 +117,13 @@ local function setup()
 		capabilities = capabilities,
 	})
 
-	lspconfig.intelephense.setup({
-		capabilities = capabilities,
-		settings = {
-			intelephense = {
-				format = {
-					enable = "true"
-				}
-			}
-		}
-	})
-
 	lspconfig.docker_compose_language_service.setup({
-		capabilities = capabilites,
+		capabilities = capabilities,
 	})
 
-	lspconfig.dockerls.setup({})
+	lspconfig.dockerls.setup({
+		capabilities = capabilities,
+	})
 end
 
 return {
