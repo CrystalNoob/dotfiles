@@ -1,0 +1,15 @@
+[user]
+	name = CrystalNoob
+	email = 69108822+CrystalNoob@users.noreply.github.com
+	signingkey = 8BB5F46258A5E731
+
+[alias]
+	co = checkout
+	br = branch
+	c = commit
+	s = status
+	sw = switch
+	l = log --show-signature
+
+[commit]
+	gpgsign = true
