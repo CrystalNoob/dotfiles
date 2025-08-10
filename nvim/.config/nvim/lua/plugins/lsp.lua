@@ -43,15 +43,7 @@ local function setup()
         }
     })
 
-    lspconfig.pyright.setup({
-        settings = {
-            python = {
-                analysis = {
-                    typeCheckingMode = "off"
-                }
-            }
-        }
-    })
+    lspconfig.basedpyright.setup({})
 
     lspconfig.jdtls.setup({
         root_dir = function()
