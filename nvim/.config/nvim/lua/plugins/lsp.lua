@@ -2,7 +2,7 @@ local function setup()
     require("lazydev").setup({
         library = {
             "lazy.nvim",
-            { path = "${3rd}/luv/library", words = { "vim%.uv" }, },
+            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
         },
         integrations = {
             lspconfig = true,
@@ -11,8 +11,8 @@ local function setup()
         },
 
         enabled = function(root_dir)
-            return (not vim.uv.fs_stat(root_dir .. "/.luarc.json")) and
-                (vim.g.lazydev_enabled == nil and true or vim.g.lazydev_enabled)
+            return (not vim.uv.fs_stat(root_dir .. "/.luarc.json"))
+                and (vim.g.lazydev_enabled == nil and true or vim.g.lazydev_enabled)
         end,
     })
 
@@ -109,5 +109,5 @@ return {
         "folke/lazydev.nvim",
         "b0o/schemastore.nvim",
     },
-    config = setup
+    config = setup,
 }

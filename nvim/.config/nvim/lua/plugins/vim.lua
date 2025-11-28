@@ -9,6 +9,7 @@ set.number = true
 set.scrolloff = 10
 set.cursorline = true
 set.termguicolors = true
+set.clipboard = "unnamedplus"
 diag.config({
     -- virtual_lines = true,
     virtual_text = true
