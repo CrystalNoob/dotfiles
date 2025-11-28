@@ -16,26 +16,30 @@ local function setup()
         end,
     })
 
-    local lspconfig = require("lspconfig")
+    local function lsp(name, opts)
+        vim.lsp.config(name, opts or {})
+        vim.lsp.enable(name)
+    end
+
     --Enable (broadcasting) snippet capability for completion
     local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
     capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-    lspconfig.tailwindcss.setup({
+    lsp("tailwindcss", {
         ft = { "typescriptreact", "javascriptreact", "vue", "svelte", "html" }
     })
 
-    lspconfig.lua_ls.setup({
+    lsp("lua_ls", {
         settings = {
             Lua = {}
         }
     })
 
-    lspconfig.clangd.setup({
+    lsp("clangd", {
         capabilities = capabilities
     })
 
-    lspconfig.gopls.setup({
+    lsp("gopls", {
         settings = {
             gopls = {
                 staticcheck = true,
@@ -43,9 +47,9 @@ local function setup()
         }
     })
 
-    lspconfig.basedpyright.setup({})
+    lsp("basedpyright")
 
-    lspconfig.jdtls.setup({
+    lsp("jdtls", {
         root_dir = function()
             local dir = vim.fs.dirname(vim.fs.find({ ".git" }, { upward = true })[1])
             if dir == nil then
@@ -55,21 +59,21 @@ local function setup()
         end
     })
 
-    lspconfig.cssls.setup({
+    lsp("cssls", {
         capabilities = capabilities,
     })
 
-    lspconfig.ts_ls.setup({})
+    lsp("ts_ls")
 
-    lspconfig.yamlls.setup({
+    lsp("yamlls", {
         telemetry = false
     })
 
-    lspconfig.html.setup({
+    lsp("html", {
         capabilities = capabilities,
     })
 
-    lspconfig.jsonls.setup({
+    lsp("jsonls", {
         settings = {
             json = {
                 schemas = require("schemastore").json.schemas(),
@@ -81,9 +85,9 @@ local function setup()
         capabilities = capabilities,
     })
 
-    lspconfig.docker_compose_language_service.setup({})
+    lsp("docker_compose_language_service")
 
-    lspconfig.dockerls.setup({
+    lsp("dockerls", {
         settings = {
             docker = {
                 languageserver = {
