@@ -70,7 +70,7 @@ ZSH_CUSTOM=~/.config/zsh
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(fzf git gpg-agent keychain sudo)
+plugins=(fzf git gpg-agent keychain kubectl sudo)
 
 # Zstyle for the plugins below
 zstyle :omz:plugins:keychain agents gpg,ssh
