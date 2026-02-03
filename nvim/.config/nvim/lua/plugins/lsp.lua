@@ -49,15 +49,7 @@ local function setup()
 
     lsp("basedpyright")
 
-    lsp("jdtls", {
-        root_dir = function()
-            local dir = vim.fs.dirname(vim.fs.find({ ".git" }, { upward = true })[1])
-            if dir == nil then
-                dir = vim.fn.getcwd()
-            end
-            return dir
-        end
-    })
+    lsp("jdtls")
 
     lsp("cssls", {
         capabilities = capabilities,
