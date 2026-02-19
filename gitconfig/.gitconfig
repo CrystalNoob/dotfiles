@@ -9,7 +9,7 @@
 	c = commit
 	s = status
 	sw = switch
-	l = log --show-signature
+	lss = log --show-signature
 
 [commit]
 	gpgsign = true
