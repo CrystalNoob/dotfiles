@@ -1,5 +1,5 @@
 local function setup()
-    require("nvim-treesitter.configs").setup({
+    require("nvim-treesitter").setup({
         ensure_installed = { "c", "css", "cpp", "html", "lua", "markdown", "markdown_inline", "query", "vim", "vimdoc" },
         sync_install = false,
         auto_install = true,
@@ -31,7 +31,7 @@ end
 return {
     "nvim-treesitter/nvim-treesitter",
     lazy = false,
-    branch = "master",
+    branch = "main",
     build = ":TSUpdate",
     dependencies = {
         {
