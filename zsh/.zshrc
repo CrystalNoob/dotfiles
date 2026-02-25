@@ -73,8 +73,8 @@ ZSH_CUSTOM=~/.config/zsh
 plugins=(fzf git gpg-agent helm keychain kubectl sudo golang aws)
 
 # Zstyle for the plugins below
-zstyle :omz:plugins:keychain agents gpg,ssh
 zstyle :omz:plugins:keychain options --quiet
+zstyle :omz:plugins:keychain identities id_ed25519 8BB5F46258A5E731
 
 source $ZSH/oh-my-zsh.sh
 
