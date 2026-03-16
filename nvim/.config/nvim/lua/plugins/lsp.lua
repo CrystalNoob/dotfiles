@@ -90,6 +90,8 @@ local function setup()
             }
         }
     })
+
+    lsp("buf_ls")
 end
 
 return {
