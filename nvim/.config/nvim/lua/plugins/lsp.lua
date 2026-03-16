@@ -92,6 +92,8 @@ local function setup()
     })
 
     lsp("buf_ls")
+
+    lsp("rust_analyzer")
 end
 
 return {

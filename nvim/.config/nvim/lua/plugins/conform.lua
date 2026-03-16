@@ -9,6 +9,7 @@ local function setup()
             javascriptreact = { "prettierd", "prettier", stop_after_first = true },
             typescriptreact = { "prettierd", "prettier", stop_after_first = true },
             python = { "isort", "black" },
+            rust = { "rustfmt" },
         },
 
         default_format_opts = {
