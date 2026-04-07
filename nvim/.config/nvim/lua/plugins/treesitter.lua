@@ -1,5 +1,5 @@
 local function setup()
-    require("nvim-treesitter").install { "c", "cpp", "gitconfig", "go", "lua", "markdown", "markdown_inline", "zsh" }
+    require("nvim-treesitter").install { "c", "cpp", "gitconfig", "go", "gomod", "gosum", "lua", "markdown", "markdown_inline", "zsh" }
 
     require("nvim-autopairs").setup({
         disable_filetype = {
